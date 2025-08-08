@@ -13,6 +13,11 @@ image.use(express.json())
 image.use('/image',authMiddleware,require('./routes/imageRoutes'));
 image.use('/auth',require('./routes/authRoutes'));
 
+
 image.listen(process.env.PORT,()=>{
   console.log(`Server is running on the port ${process.env.PORT}`);
+})
+
+image.get('/',(req,res)=>{
+  res.send("Hello!")
 })
